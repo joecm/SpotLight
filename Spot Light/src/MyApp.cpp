@@ -142,6 +142,13 @@ void MyApp::createScene() {
 	light2->setDiffuseColour(Ogre::ColourValue(1.0f,0.0f,0.0f));
 	node2->attachObject(light2);
 
+	Ogre::SceneNode* node10 = _sceneManager->createSceneNode("node10");
+	Ogre::Entity* ent10 = _sceneManager->createEntity("Spray", "Spray.mesh");
+	_sceneManager->getRootSceneNode()->addChild(node10);
+	node10->attachObject(ent10);
+	node10->setScale(5.0f, 5.0f, 5.0f);
+	node10->setPosition(100.0f, 0.0f, 25.0f);
+
 
 	// _sceneManager->setDisplaySceneNodes(true);
 }
