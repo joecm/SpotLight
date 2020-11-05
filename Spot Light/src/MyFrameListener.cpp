@@ -12,7 +12,7 @@ MyFrameListener::MyFrameListener(Ogre::RenderWindow* win,
   OIS::ParamList param;
   size_t windowHandle;  std::ostringstream wHandleStr;
 
-  _camera = cam;  _win = win; _node = NULL; _sceneManager = sM;
+  _camera = cam;  _win = win; _node = NULL; _sceneManager = sM; _ent=NULL;
 
   _win->getCustomAttribute("WINDOW", &windowHandle);
   wHandleStr << windowHandle;
@@ -53,6 +53,18 @@ bool MyFrameListener::frameStarted(const Ogre::FrameEvent& evt) {
 	  r=180;
   _node = _sceneManager->getSceneNode("Node1");
   _node->yaw(Ogre::Degree(r * deltaT));
+
+  // Ocultar una entidad
+  if(_keyboard->isKeyDown(OIS::KC_H)) {
+	  _ent =_sceneManager->getEntity("Spray");
+	  _ent->setVisible(false);
+  }
+
+  if (_keyboard->isKeyDown(OIS::KC_Y)) {
+	  _node = _sceneManager->getSceneNode("Node1");
+	  _node->setVisible(false);
+  }
+
 
   // std::cout << "node1: " << _node->getPosition() << std::endl;
 

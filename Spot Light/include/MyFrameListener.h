@@ -18,8 +18,9 @@ private:
   OIS::Keyboard* _keyboard;
   OIS::Mouse* _mouse;
   Ogre::Camera* _camera;
-  Ogre::SceneNode *_node;
+  Ogre::SceneNode* _node;
   Ogre::RenderWindow* _win;
+  Ogre::Entity* _ent;
 
 public:
   MyFrameListener(Ogre::RenderWindow* win,
